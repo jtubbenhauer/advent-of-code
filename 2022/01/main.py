@@ -1,26 +1,26 @@
 if __name__ == '__main__':
-    with open('data.txt') as sample:
-        lines = sample.read().splitlines()
+    with open('data.txt') as data:
+        lines = data.read().splitlines()
 
-    index = 0
-    added_list = []
+    current_index = 0
+    elf_list = []
     first_value = True
 
     for line in lines:
         if line:
             if first_value:
-                added_list.append(int(line))
+                elf_list.append(int(line))
                 first_value = False
             else:
-                added_list[index] += int(line)
+                elf_list[current_index] += int(line)
         else:
-            index += 1
+            current_index += 1
             first_value = True
 
     current_highest = 0
 
-    for elf in added_list:
-        if elf > current_highest:
-            current_highest = elf
+    for elf_total in elf_list:
+        if elf_total > current_highest:
+            current_highest = elf_total
 
     print(current_highest)
